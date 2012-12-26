@@ -1,6 +1,6 @@
 === 1.1.0
 
-* Added JRuby support.
+*  Added JRuby support.
 
 === 1.0.0
 
