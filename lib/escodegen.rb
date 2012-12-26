@@ -1,6 +1,10 @@
 # encoding: UTF-8
 
-require 'v8'
+if (RUBY_PLATFORM == 'java')
+  require 'rhino'
+else
+  require 'v8'
+end
 require 'commonjs'
 
 require 'escodegen/generator'
@@ -11,7 +15,11 @@ module Escodegen
   end
 
   def self.new_environment
-    context = V8::Context.new
+    if (RUBY_PLATFORM == 'java')
+      context = Rhino::Context.new
+    else
+      context = V8::Context.new
+    end
     env = CommonJS::Environment.new(context, :path => Escodegen.load_path)
     env.require("escodegen")
   end
