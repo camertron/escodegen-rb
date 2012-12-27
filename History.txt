@@ -1,3 +1,7 @@
+=== 1.2.0
+
+*  Supported different platforms with execjs, which should fix JRuby issues.
+
 === 1.1.0
 
 *  Added JRuby support.
